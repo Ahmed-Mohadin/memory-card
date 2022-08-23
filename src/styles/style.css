@@ -59,23 +59,56 @@ header .title{
 }
 
 /* .game-board */
+.game-board{
+    text-align: center;
+}
 
 /* .display-cards */
 .display-cards{
     display: grid;
     grid-template-columns: repeat(4, 15rem);
-    gap: 1rem;
+    gap: 0.95rem;
     align-content: center;
     justify-content: center;
 }
 
 /* .card */
 .card{
-    height: 9rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.card .card-image{
+    width: 15rem;
+    height: 15rem;
     border: solid 0.25rem var(--txtColor1);
+    border-radius: var(--defaultRadius);
+}
+.card img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.card .card-name{
+    margin-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-bottom: solid 0.2rem var(--txtColor1);
+}
+.card .card-name h3{
+    font-size: 0.9em;
+}
+
+.btn{
+    outline: none;
+    border: solid 0.1rem var(--txtColor1);
+    padding: 0.4rem 1.2rem;
+    border-radius: var(--defaultRadius);
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.btn:hover{
+    border-color: var(--onError);
 }
 
 /* footer */

@@ -9,10 +9,17 @@ function GameBoard() {
 
     const handleScore = () => setScore(score + 1);
 
-    const handleBestScore = () => setBestScore(score);
+    const handleBestScore = () => {
+        if(score > bestScore) setBestScore(score);
+    };
 
     const handleCard = (card) => {
         setCards([...cards, card])
+    }
+
+    const resetScores = () => {
+        setScore(0);
+        setBestScore(0);
     }
 
     const reset = () => {
@@ -21,6 +28,9 @@ function GameBoard() {
     }
 
     const handleGameLogic = (card) => {
+        if(cards.length === 20 || score === 20){
+
+        }
         if(!cards.includes(card)) {
             handleCard(card);
             handleScore();
@@ -33,7 +43,10 @@ function GameBoard() {
     return (
         <div className="game-board">
             <ScoreBoard score={score} bestScore={bestScore} />
-            <DisplayCards cards={cards} handleGameLogic={handleGameLogic} score={score} bestScore={bestScore} />
+            <DisplayCards cards={cards} handleGameLogic={handleGameLogic} 
+                          score={score} bestScore={bestScore} 
+                          resetScores={resetScores}
+                          />
         </div>
     )
 }
