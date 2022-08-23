@@ -1,0 +1,105 @@
+/* core */
+:root{
+    --bgColor1: #EFEFEF;
+    --txtColor1: #333333;
+    --onError: #FF4F3F;
+    --shadow: rgba(255, 255, 255, 0.24) 0.2rem 0.2rem 0.2rem;
+
+    --defaultRadius: 0.3rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: sans-serif, 'Times New Roman', Times, serif;
+    min-height: 100%;
+    position: relative;
+}
+body{
+    background-color: var(--bgColor1); 
+    color: var(--txtColor1);
+    margin-bottom: 100px;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+}
+header .title{
+    font-size: 3em;
+}
+
+/* .score-board */
+.score-board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.score-board .text{
+    text-align: center;
+}
+.score-board .text > h2{
+    font-size: 1.025em;
+}
+.score-board .text .dont{
+    color: var(--onError);
+}
+.score-board .score{
+    margin: 1rem 0rem; 
+}
+.score-board .score > span{
+    margin: 0rem 0.5rem;
+    font-weight: bold;
+}
+
+/* .game-board */
+
+/* .display-cards */
+.display-cards{
+    display: grid;
+    grid-template-columns: repeat(4, 15rem);
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+}
+
+/* .card */
+.card{
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 0.25rem var(--txtColor1);
+}
+
+/* footer */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer a{
+    text-decoration: none;
+    color: var(--txtColor1);
+    border: solid 0.3rem transparent;
+}
+footer a:hover{
+    border-bottom-color: var(--accentColor1);
+}
+
+
+/* media queries */
+/* @media(max-width: 769px){
+}
+@media(max-width: 426px){
+} */
