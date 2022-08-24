@@ -6,6 +6,7 @@ function GameBoard() {
     const [cards, setCards] = useState([]);    
     const [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
+    const [gameText, setGameText] = useState('');
 
     const handleScore = () => setScore(score + 1);
 
@@ -28,8 +29,11 @@ function GameBoard() {
     }
 
     const handleGameLogic = (card) => {
-        if(cards.length === 20 || score === 20){
-
+        if(cards.length + 1 === 20 || score + 1 === 20){
+            setGameText('Congratulations you got 20 out of 20 correct. Click refresh for a new round!');
+            setTimeout(() => {
+                setGameText('');
+            }, 7500);
         }
         if(!cards.includes(card)) {
             handleCard(card);
@@ -42,7 +46,7 @@ function GameBoard() {
 
     return (
         <div className="game-board">
-            <ScoreBoard score={score} bestScore={bestScore} />
+            <ScoreBoard score={score} bestScore={bestScore} gameText={gameText}/>
             <DisplayCards cards={cards} handleGameLogic={handleGameLogic} 
                           score={score} bestScore={bestScore} 
                           resetScores={resetScores}

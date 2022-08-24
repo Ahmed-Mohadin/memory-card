@@ -6,7 +6,8 @@ function DisplayCards({ handleGameLogic, score, bestScore, resetScores }) {
     const [cards, setCards] = useState([]);
     const [randomPage, setRandomPage] = useState(1);
 
-    const randomIntFromInterval = (min, max) => { // min and max included 
+    // min and max included 
+    const randomIntFromInterval = (min, max) => { 
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
@@ -19,11 +20,31 @@ function DisplayCards({ handleGameLogic, score, bestScore, resetScores }) {
         const api = `https://rickandmortyapi.com/api/character/?page=${randomPage}`;
 
         const getData = async () => {
-            const res = await fetch(api);
-            const data = await res.json();
-            const results = data.results;
-            setCards(results);
-            resetScores();
+            try{
+                const res = await fetch(api);
+                if(res.ok){
+                    const data = await res.json();
+                    const results = data.results;
+                    setCards(results);
+                    resetScores();        
+                } else{
+                    setCards([
+                        {
+                            id: 'Error',
+                            name: 'Failed to find',
+                            image: 'https://learningactors.com/wp-content/uploads/2018/05/error_handling.jpg'
+                        },
+                    ])    
+                }
+            } catch(error) {
+                setCards([
+                    {
+                        id: 'Error',
+                        name: 'Failed to fetch',
+                        image: 'https://learningactors.com/wp-content/uploads/2018/05/error_handling.jpg'
+                    },
+                ])
+            }
         }
         getData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -50,7 +71,7 @@ function DisplayCards({ handleGameLogic, score, bestScore, resetScores }) {
                 {
                     cards.map((card, index) => {
                         return <Card key={index} name={card.name} image={card.image} 
-                                     id={card.id} handleGameLogic={handleGameLogic} />
+                                     handleGameLogic={handleGameLogic} />
                     })
                 }
             </div>

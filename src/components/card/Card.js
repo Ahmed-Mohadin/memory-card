@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({ name, image, handleGameLogic, id }) {
+function Card({ name, image, handleGameLogic}) {
   
   return (
     <div className='card' onClick={() => handleGameLogic(name)}>
@@ -8,8 +8,9 @@ function Card({ name, image, handleGameLogic, id }) {
         <img src={image} alt={name} />
       </div>
       <div className="card-name">
-        <h3>{name} - {id}</h3>
+        <h3>{name}</h3>
       </div>
+      <div className='under-line'></div>
     </div>
   )
 }
