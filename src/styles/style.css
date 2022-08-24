@@ -1,0 +1,196 @@
+/* core */
+:root{
+    --bgColor1: #2E466A;
+    --bgColor2: #24325F;
+
+    --txtColor1: #03B2C1;
+
+    --accentColor1: #599349;
+    --accentColor2: #D8CAC1;
+
+    --defaultRadius: 0.3rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: sans-serif, 'Times New Roman', Times, serif;
+    min-height: 100%;
+    position: relative;
+}
+body{
+    background-color: var(--bgColor1); 
+    color: var(--txtColor1);
+    margin-bottom: 100px;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+}
+header .title{
+    font-size: 3em;
+}
+
+/* .score-board */
+.score-board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.score-board .text{
+    text-align: center;
+}
+.score-board .text > h2{
+    font-size: 1.025em;
+}
+.score-board .text .different{
+    color: var(--accentColor2);
+}
+.score-board .score{
+    margin: 1rem 0rem; 
+}
+.score-board .score > span{
+    margin: 0rem 0.5rem;
+    font-weight: bold;
+}
+.score-board .game-text{
+    margin-bottom: 0.5rem;
+}
+
+/* .game-board */
+.game-board{
+    text-align: center;
+}
+
+/* .display-cards */
+.display-cards{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.95rem;
+}
+
+/* .card */
+.card{
+    width: calc(100% / 6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card .under-line{
+    width: 3rem;
+    height: 0.25rem;
+    background-color: aliceblue;
+    margin-top: 0.25rem;
+    border-radius: var(--defaultRadius);
+    background-color: var(--bgColor2);
+}
+.card:hover .under-line{
+    background-color: var(--accentColor1);
+}
+.card:hover, .card:hover .card-image, .card:hover .under-line{
+    color: var(--accentColor2);
+    cursor: pointer;
+    border-color: var(--accentColor1);
+}
+.card .card-image{
+    border: solid 0.25rem var(--bgColor2);
+    border-radius: var(--defaultRadius);
+    display: flex;
+}
+.card img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.card .card-name{
+    margin-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    width: 100%;
+    height: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card .card-name h3{
+    font-size: 0.8em;
+}
+.score-board .game-text{
+    margin-bottom: 0.5rem;
+}
+
+.btn{
+    outline: none;
+    border: solid 0.2rem var(--txtColor1);
+    padding: 0.4rem 2rem;
+    border-radius: var(--defaultRadius);
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background-color: var(--bgColor2);
+    color: var(--txtColor1);
+}
+.btn:hover{
+    background-color: var(--bgColor1);
+    color: var(--accentColor2);
+    border-color: var(--accentColor1);
+}
+
+/* footer */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer a{
+    text-decoration: none;
+    color: var(--txtColor1);
+    border: solid 0.3rem transparent;
+}
+footer a:hover{
+    color: var(--accentColor2);
+    border-bottom-color: var(--accentColor1);
+}
+
+
+/* media queries */
+@media(min-width: 769px){
+    .card .card-name{
+        height: 2rem;
+    }
+    .card .card-name h3{
+        font-size: 1em;
+    }
+}
+@media(max-width: 769px){
+    .card{
+        width: calc(100% / 5);
+    }
+    .card .card-name{
+        height: 2rem;
+    }
+    .card .card-name h3{
+        font-size: 0.65em;
+    }
+}
+@media(max-width: 426px){
+    :root{
+        font-size: 0.6em;
+    }
+    .btn{
+        font-size: 0.9em;
+    }
+}
